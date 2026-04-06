@@ -1,0 +1,71 @@
+<div class="space-y-6">
+
+  <!-- Encabezado -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-800">Pacientes</h1>
+      <p class="text-gray-500 text-sm mt-1">Gestión de pacientes registrados</p>
+    </div>
+    <button (click)="mostrarFormulario = true" 
+        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition">
+        + Nuevo paciente
+    </button>
+  </div>
+
+  <!-- Tabla -->
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+    <table class="w-full">
+      <thead class="bg-gray-50 border-b border-gray-100">
+        <tr>
+          <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Nombre</th>
+          <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Cédula</th>
+          <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Teléfono</th>
+          <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Email</th>
+          <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Estado</th>
+          <th class="text-left px-6 py-4 text-xs font-semibold text-gray-500 uppercase">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-50">
+        @for (paciente of pacientes; track paciente.id) {
+          <tr class="hover:bg-gray-50 transition">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold text-blue-600">
+                    {{ paciente.nombre.charAt(0) }}
+                  </span>
+                </div>
+                <span class="font-medium text-gray-800 text-sm">{{ paciente.nombre }}</span>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-600">{{ paciente.cedula }}</td>
+            <td class="px-6 py-4 text-sm text-gray-600">{{ paciente.telefono }}</td>
+            <td class="px-6 py-4 text-sm text-gray-600">{{ paciente.email }}</td>
+            <td class="px-6 py-4">
+              <span [class]="paciente.estado === 'Activo' 
+                ? 'text-green-600 bg-green-50 px-3 py-1 rounded-full text-xs font-medium'
+                : 'text-red-500 bg-red-50 px-3 py-1 rounded-full text-xs font-medium'">
+                {{ paciente.estado }}
+              </span>
+            </td>
+            <td class="px-6 py-4">
+              <div class="flex gap-2">
+                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium transition">Editar</button>
+                <button class="text-red-500 hover:text-red-700 text-sm font-medium transition">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+    @if (mostrarFormulario) {
+     <app-paciente-form
+        (cerrar)="mostrarFormulario = false"
+        (guardar)="onGuardar($event)">
+     </app-paciente-form>
+    }
+
+
+</div>
