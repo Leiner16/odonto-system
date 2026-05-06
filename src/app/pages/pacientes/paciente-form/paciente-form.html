@@ -13,25 +13,25 @@
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
-        <input [(ngModel)]="paciente.nombre" type="text" placeholder="Ana Martínez"
+        <input [(ngModel)]="pacienteData.nombre" type="text" placeholder="Ana Martínez"
           class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition"/>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Cédula</label>
-        <input [(ngModel)]="paciente.cedula" type="text" placeholder="1234567890"
+        <input [(ngModel)]="pacienteData.cedula" type="text" placeholder="1234567890"
           class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition"/>
       </div>
 
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-          <input [(ngModel)]="paciente.telefono" type="text" placeholder="3001234567"
+          <input [(ngModel)]="pacienteData.telefono" type="text" placeholder="3001234567"
             class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition"/>
         </div>
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Estado</label>
-          <select [(ngModel)]="paciente.estado"
+          <select [(ngModel)]="pacienteData.estado"
             class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition">
             <option value="Activo">Activo</option>
             <option value="Inactivo">Inactivo</option>
@@ -41,7 +41,7 @@
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-        <input [(ngModel)]="paciente.email" type="email" placeholder="ana@gmail.com"
+        <input [(ngModel)]="pacienteData.email" type="email" placeholder="ana@gmail.com"
           class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition"/>
       </div>
 

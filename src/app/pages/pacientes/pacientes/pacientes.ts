@@ -28,7 +28,28 @@ export class Pacientes {
   ];
 
   onGuardar(paciente: any) {
-    this.pacientes.push({ id: this.pacientes.length + 1, ...paciente });
+    if (this.pacienteSeleccionado) {
+      // Editar existente
+      this.pacientes = this.pacientes.map(p =>
+        p.id === this.pacienteSeleccionado.id ? { ...p, ...paciente } : p
+      );
+      this.pacienteSeleccionado = null;
+    } else {
+      // Crear nuevo
+      this.pacientes.push({ id: this.pacientes.length + 1, ...paciente });
+   }
     this.mostrarFormulario = false;
   }
+
+  onEliminar(id: number) {
+  this.pacientes = this.pacientes.filter(p => p.id !== id);
+  }
+  
+  pacienteSeleccionado: any = null;
+
+  onEditar(paciente: any) {
+  this.pacienteSeleccionado = { ...paciente };
+  this.mostrarFormulario = true;
+}
+
 }

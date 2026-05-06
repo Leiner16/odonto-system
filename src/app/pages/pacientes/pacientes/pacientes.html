@@ -50,8 +50,14 @@
             </td>
             <td class="px-6 py-4">
               <div class="flex gap-2">
-                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium transition">Editar</button>
-                <button class="text-red-500 hover:text-red-700 text-sm font-medium transition">Eliminar</button>
+                <button (click)="onEditar(paciente)"
+                  class="text-blue-600 hover:text-blue-800 text-sm font-medium transition">
+                  Editar
+                </button>
+                <button (click)="onEliminar(paciente.id)" 
+                  class="text-red-500 hover:text-red-700 text-sm font-medium transition">
+                  Eliminar
+                </button>
               </div>
             </td>
           </tr>
@@ -62,10 +68,11 @@
 
     @if (mostrarFormulario) {
      <app-paciente-form
-        (cerrar)="mostrarFormulario = false"
-        (guardar)="onGuardar($event)">
-     </app-paciente-form>
-    }
+      [paciente]="pacienteSeleccionado"
+      (cerrar)="mostrarFormulario = false; pacienteSeleccionado = null"
+      (guardar)="onGuardar($event)">
+    </app-paciente-form>
+}
 
 
 </div>
