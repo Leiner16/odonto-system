@@ -3,6 +3,7 @@ import { Login} from './pages/auth/login/login';
 import { MainLayout } from './layout/main-layout/main-layout';
 import { Dashboard } from './pages/dashboard/dashboard/dashboard';
 import { Pacientes } from './pages/pacientes/pacientes/pacientes';
+import { Odontologos } from './pages/odontologos/odontologos/odontologo';
 
 export const routes: Routes = [
     {path: 'login', component: Login},
@@ -13,6 +14,7 @@ export const routes: Routes = [
             { path: 'dashboard', component: Dashboard },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'pacientes', component: Pacientes },
+            { path: 'odontologos', component: Odontologos },
         ]
     }
 ];
